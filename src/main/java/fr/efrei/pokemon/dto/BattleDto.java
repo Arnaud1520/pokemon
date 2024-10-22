@@ -5,7 +5,7 @@ import java.util.List;
 public class BattleDto {
     private String trainer1Id;
     private String trainer2Id;
-    private List<String> pokemonIds; // Liste des IDs des Pokémon à associer au combat
+    private List<String> pokemonIds; 
     
 	public String getTrainer1Id() {
 		return trainer1Id;

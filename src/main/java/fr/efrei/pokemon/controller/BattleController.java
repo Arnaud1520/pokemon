@@ -13,22 +13,22 @@ import fr.efrei.pokemon.modele.Battle;
 import fr.efrei.pokemon.modele.Pokemon;
 import fr.efrei.pokemon.modele.Trainer;
 import fr.efrei.pokemon.services.BattleService;
-import fr.efrei.pokemon.services.PokemonService; // Ajoute l'import du service Pokemon
-import fr.efrei.pokemon.services.TrainerService; // Ajoute l'import du service Trainer
+import fr.efrei.pokemon.services.PokemonService; 
+import fr.efrei.pokemon.services.TrainerService; 
 
 @RestController
 @RequestMapping("/battles")
 public class BattleController {
 
     private final BattleService battleService;
-    private final TrainerService trainerService; // Déclare le service Trainer
-    private final PokemonService pokemonService; // Déclare le service Pokemon
+    private final TrainerService trainerService; 
+    private final PokemonService pokemonService; 
 
     @Autowired
     public BattleController(BattleService battleService, TrainerService trainerService, PokemonService pokemonService) {
         this.battleService = battleService;
-        this.trainerService = trainerService; // Injecte le service Trainer
-        this.pokemonService = pokemonService; // Injecte le service Pokemon
+        this.trainerService = trainerService; 
+        this.pokemonService = pokemonService; 
     }
 
     @GetMapping
@@ -51,14 +51,14 @@ public class BattleController {
         Trainer trainer2 = trainerService.findById(battleDTO.getTrainer2Id());
 
         if (trainer1 == null || trainer2 == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // Dresseur introuvable
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         Battle battle = new Battle();
         battle.setTrainer1(trainer1);
         battle.setTrainer2(trainer2);
 
-        // Récupérer les Pokémon correspondants à partir des IDs
+        
         List<Pokemon> pokemonsInBattle = new ArrayList<>();
         for (String pokemonId : battleDTO.getPokemonIds()) {
             Pokemon pokemon = pokemonService.findById(pokemonId);
@@ -67,9 +67,9 @@ public class BattleController {
             }
         }
 
-        battle.setPokemonAuCombat(pokemonsInBattle); // Assurez-vous d'utiliser la bonne méthode
+        battle.setPokemonAuCombat(pokemonsInBattle); 
 
-        battleService.save(battle); // Méthode pour enregistrer le combat
+        battleService.save(battle); 
         return new ResponseEntity<>(battle, HttpStatus.CREATED);
     }
 

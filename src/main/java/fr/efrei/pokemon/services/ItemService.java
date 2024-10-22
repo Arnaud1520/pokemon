@@ -60,7 +60,7 @@ public class ItemService {
 		        itemAModifier.setQuantity(itemBody.getQuantity());
 		    }
 
-		    // Enregistrer les modifications
+		    
 		    itemRepository.save(itemAModifier);
 		}
 
