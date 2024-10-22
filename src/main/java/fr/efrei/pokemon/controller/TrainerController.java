@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.efrei.pokemon.dto.CreateTrainer;
 import fr.efrei.pokemon.dto.UpdateTrainer;
+import fr.efrei.pokemon.modele.Pokemon;
 import fr.efrei.pokemon.modele.Trainer;
 import fr.efrei.pokemon.services.TrainerService;
 
@@ -42,6 +43,17 @@ public class TrainerController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(trainer, HttpStatus.OK);
+	}
+	
+	
+	//Recup les pokemons du dresseur
+	@GetMapping("/{id}/pokemons")
+	public ResponseEntity<List<Pokemon>> getPokemonsByTrainerId(@PathVariable String id) {
+	    Trainer trainer = trainerService.findById(id);
+	    if (trainer == null) {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
+	    return new ResponseEntity<>(trainer.getTeam(), HttpStatus.OK);
 	}
 	
 	
