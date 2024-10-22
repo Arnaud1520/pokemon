@@ -1,0 +1,33 @@
+package fr.efrei.pokemon.constants;
+
+public enum NameItem {
+
+	POTION,
+    SUPER_POTION,
+    HYPER_POTION,
+    POTION_MAX,
+    RAPPEL,
+    RAPPEL_MAX,
+    ANTIDOTE,
+    ANTI_PARA,
+    ANTI_BRULE,
+    ANTI_GLACE,
+    REVEIL,
+    GUERISON,
+    BAIE_ORAN,
+    BAIE_SITRUS,
+    POKE_BALL,
+    SUPERBALL,
+    HYPER_BALL,
+    REPOUSSE,
+    MAX_REPOUSSE,
+    PIERRE_FEU,
+    PIERRE_EAU,
+    PIERRE_FOUDRE,
+    PIERRE_LUNE,
+    VIVE_GRIFFE,
+    BANDEAU_MUSCLE,
+    LUNETTES_SAGES,
+    CT
+	
+}

@@ -20,6 +20,9 @@ public class Trainer {
 	@OneToMany
 	private List<Pokemon> team;
 	
+	@OneToMany
+	private List<Item> item;
+	
 	public String getId() {
 		return id;
 	}
@@ -43,6 +46,16 @@ public class Trainer {
 	public void setTeam(List<Pokemon> team) {
 		this.team = team;
 	}
+
+	public List<Item> getItem() {
+		return item;
+	}
+
+	public void setItem(List<Item> item) {
+		this.item = item;
+	}
+	
+	
 	
 	
 	
